@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
-import { CloseButton, Content, Overlay, TransictionType, TransictionTypeButton } from './styles';
+import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from './styles';
 import { ArrowDownCircle, ArrowUpCircle, X } from 'lucide-react';
 
 export function NewTransactionModal() {
@@ -18,17 +18,17 @@ export function NewTransactionModal() {
                     <input type="number" placeholder='Preço' required/>
                     <input type="text" placeholder='Categoria' required/>
 
-                    <TransictionType>
-                        <TransictionTypeButton variant='income'>
+                    <TransactionType>
+                        <TransactionTypeButton variant='income' value='income'>
                             <ArrowUpCircle size={15} />
                             Entrada
-                        </TransictionTypeButton>
+                        </TransactionTypeButton>
 
-                        <TransictionTypeButton variant='outcome'>
+                        <TransactionTypeButton variant='outcome' value='outcome'>
                             <ArrowDownCircle size={15} />
                             Saída
-                        </TransictionTypeButton>
-                    </TransictionType>
+                        </TransactionTypeButton>
+                    </TransactionType>
 
                     <button type='submit'>Cadastrar</button>
                 </form>
