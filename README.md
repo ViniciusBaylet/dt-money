@@ -28,3 +28,8 @@ importar a logo do site e demais imagens
 # Quarta pasta a ser criada:
 - components
  Header
+
+# Radix UI:
+- biblioteca para criar o dialog (npm install @radix-ui/react-dialog)
+- vai no Header que é onde fica o botão que vai ativar o dialog e coloca a tag <Dialog.Root> por volta do botão
+- bota a tag <Dialog.Trigger> por volta do botão e passa a propriedade "as child" para que o trigger não crie outro botão e aproveite o botão que já está dentro dele (<NewTransictionButton>)
