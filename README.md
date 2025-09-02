@@ -66,3 +66,11 @@ sintaxe:
 - Precisamos armazenar essas informações que chegam da API num estado.
 - Importante tipar os estados usando type ou interface
 - Toda vez que eu fizer um map o primeiro elemento do map tem que ter um atributo key que o identifica unicamente
+
+# Quinta pasta a ser criada:
+- contexts
+ TransactionContext
+- Mover toda a parte de chamada para a api para dentro do contexto
+- Coloca o <TransactionsProvider> por volta do <Transactions> no arquivo App.tsx
+- Importa os atributos usando o hook useContext no <Transactions>
+- Importa a linha: const { transactions } = useContext(TransactionsContext); para dentro do componente <Summary> para ter acesso aos dados da API e calcular entradas, saidas e total.
