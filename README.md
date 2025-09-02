@@ -40,3 +40,29 @@ importar a logo do site e demais imagens
 - Cada propriedade do objeto = uma rota da aplicação ou uma entidade do banco de dados
 - Para rodar o JSON Server utiliza-se o comando: npx json-server server.json -w ou json-server server.json -w -p 3333 (para subir na porta 3333)
 - Cria o script dev:server no package.json
+
+# Requisições HTTP:
+- Para carregar uma lista de qualquer coisa no backend utilizamos a API fetch() do navegador (caso não queiramos instalar nenhuma biblioteca). Porém, sempre que o componente que o fetch está inserido mudar, a requisição do fetch será realizada novamente(não queremos isso pois acaba perdendo performance).
+sintaxe: fetch("http://localhost:3000/transactions").then(response => {
+        console.log(response)
+    });
+- Por isso usamos o fetch dentro do useEffect();
+sintaxe:    useEffect(() => {
+        fetch("http://localhost:3000/transactions")
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }, []);
+- Porém dessa forma não conseguimos colocar async-await pois não podemos usar isso na função do useEffect. A solução é separar a requisição em uma função js e chamar essa função dentro do useEffect.
+sintaxe:
+    async function loadTransactions() {
+        const response = await fetch("http://localhost:3000/transactions");
+        const data = await response.json();
+        console.log(data);
+    }
+
+    useEffect(() => {
+        loadTransactions();
+    }, []);
+- Precisamos armazenar essas informações que chegam da API num estado.
+- Importante tipar os estados usando type ou interface
+- Toda vez que eu fizer um map o primeiro elemento do map tem que ter um atributo key que o identifica unicamente
