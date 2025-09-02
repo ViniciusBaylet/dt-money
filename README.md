@@ -80,3 +80,6 @@ sintaxe:
  formatter
 para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na pagina de <Transactions>
 {priceFormatter.format(transaction.price)}
+
+# Criando hooks próprios:
+- são funções que retornam hooks nativos do React
