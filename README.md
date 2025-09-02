@@ -74,3 +74,9 @@ sintaxe:
 - Coloca o <TransactionsProvider> por volta do <Transactions> no arquivo App.tsx
 - Importa os atributos usando o hook useContext no <Transactions>
 - Importa a linha: const { transactions } = useContext(TransactionsContext); para dentro do componente <Summary> para ter acesso aos dados da API e calcular entradas, saidas e total.
+
+# Sexta pasta a ser criada:
+- utils
+ formatter
+para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na pagina de <Transactions>
+{priceFormatter.format(transaction.price)}
