@@ -87,3 +87,10 @@ para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na
 # React-Hook-Form:
 - Para inserir uma informação que não vem de um campo nativo de um elemento do html precisamos utilizar uma API do react-hook-form para controlar essas informações (control do useForm)
 - Colocar <TransactionType> dentro do render do <Controller> no arquivo <NewTransactionModal>
+
+# Axios:
+- Biblioteca para fazer requisições http;
+
+# Sétima pasta a ser criada:
+- lib
+ axios.ts

@@ -21,7 +21,7 @@ export function NewTransactionModal() {
     });
 
     function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-
+        console.log(data);
     }
 
     return (
@@ -45,12 +45,12 @@ export function NewTransactionModal() {
                         render={(props) => {
                             return (
                                 <TransactionType onValueChange={props.field.onChange} value={props.field.value}>
-                                    <TransactionTypeButton variant='income' value='income'>
+                                    <TransactionTypeButton $variant='income' value='income'>
                                         <ArrowUpCircle size={15} />
                                         Entrada
                                     </TransactionTypeButton>
 
-                                    <TransactionTypeButton variant='outcome' value='outcome'>
+                                    <TransactionTypeButton $variant='outcome' value='outcome'>
                                         <ArrowDownCircle size={15} />
                                         Saída
                                     </TransactionTypeButton>

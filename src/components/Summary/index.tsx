@@ -5,7 +5,7 @@ import { useSummary } from "../../hooks/useSummary";
 
 export function Summary() {
     const summary = useSummary();
-    
+
     return (
         <SummaryContainer>
             <SummaryCard>
@@ -26,7 +26,7 @@ export function Summary() {
                 <strong>{priceFormatter.format(summary.outcome)}</strong>
             </SummaryCard>
 
-            <SummaryCard variant="green">
+            <SummaryCard $variant="green">
                 <header>
                     <span>Total</span>
                     <CircleDollarSign size={22} color="#fff" />
