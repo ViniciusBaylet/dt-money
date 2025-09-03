@@ -4,6 +4,8 @@ import { ArrowDownCircle, ArrowUpCircle, X } from 'lucide-react';
 import z from 'zod';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useContext } from 'react';
+import { TransactionsContext } from '../../contexts/TransactionContext';
 
 const newTransactionFormSchema = z.object({
     description: z.string(),
@@ -16,12 +18,23 @@ type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal() {
 
-    const { register, handleSubmit, formState: { isSubmitting }, control } = useForm<NewTransactionFormInputs>({
+    const { createTransaction } = useContext(TransactionsContext);
+
+    const { register, handleSubmit, formState: { isSubmitting }, control, reset } = useForm<NewTransactionFormInputs>({
         resolver: zodResolver(newTransactionFormSchema)
     });
 
-    function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-        console.log(data);
+    async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
+        const { description, price, category, type } = data;
+
+        createTransaction({
+            description,
+            price,
+            category,
+            type
+        })
+
+        reset();
     }
 
     return (
@@ -29,6 +42,7 @@ export function NewTransactionModal() {
             <Overlay />
             <Content>
                 <Dialog.Title>Nova Transação</Dialog.Title>
+                <Dialog.DialogDescription />
 
                 <CloseButton>
                     <X size={20} />

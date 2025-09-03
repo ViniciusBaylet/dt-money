@@ -94,3 +94,9 @@ para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na
 # Sétima pasta a ser criada:
 - lib
  axios.ts
+
+# Atualizando a lista de transactions após cadastrar nova transaction:
+- Não seria interessante chamar a função fetchTransactions() dentro da função handleCreateNewTransaction() pois a função handle já faz uma requisição do tipo post e faria outra do tipo get
+- A solução é criar uma função que faça a requisição do tipo post dentro do context(createTransaction())
+- Passa a função createTransaction() através do contexto.
+- Chama a função no <NewTransactionModal>
