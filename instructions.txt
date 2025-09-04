@@ -100,3 +100,9 @@ para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na
 - A solução é criar uma função que faça a requisição do tipo post dentro do context(createTransaction())
 - Passa a função createTransaction() através do contexto.
 - Chama a função no <NewTransactionModal>
+
+# Context Selectors
+- Não é possível falar para o componente olhar apenas para a variável do contexto ao qual ele está chamando. Ele vai olhar para todos os componentes que pertencem ao contexto, mesmo que não esteja sendo chamado dentro do componente
+- Lá no contexto, ao invés de chamar o createContext do react, vamos chamar o createContext que vem dentro do use-context-selector
+- Ao invés de usar o useContext para chamar esse contexto nos componentes, usaremos agora o useContextSelector
+- Colocamos uma função como segundo parametro e essa função retorna o componente ao qual queremos ficar observando as mudanças e não todos os elementos como era antes.
