@@ -109,6 +109,7 @@ para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na
 
 # useCallback
 - Evita com que alguma função seja recriada em memória se nenhuma informação que aquela função dependa tenha mudado
+- Como usamos useCallback no fetchTransactions => devemos passar fetchTransactions no array de dependencias do useEffect no context.
 
 # memo
 - Usado quando para evitar lentidão quando o componente tem um return MUITO grande;
@@ -145,3 +146,7 @@ function SearchFormComponent() {
 }
 
 export const SearchForm = memo(SearchFormComponent);
+
+# useMemo
+- igual o memo porém ao invés de memorizar componentes, ele memoriza variáveis;
+- usado quando temos cálculos complexos nos compoenentes;

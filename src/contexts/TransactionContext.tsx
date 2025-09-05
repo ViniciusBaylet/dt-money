@@ -24,11 +24,11 @@ interface TransactionContextType {
     createTransaction: (data: CreateTransactionInput) => Promise<void>;
 }
 
-export const TransactionsContext = createContext({} as TransactionContextType);
-
 interface TransactionsProviderProps {
     children: ReactNode;
 }
+
+export const TransactionsContext = createContext({} as TransactionContextType);
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -65,7 +65,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
 
     useEffect(() => {
         fetchTransactions();
-    }, []);
+    }, [fetchTransactions]);
 
     return (
         <TransactionsContext.Provider value={{ transactions, fetchTransactions, createTransaction }}>
