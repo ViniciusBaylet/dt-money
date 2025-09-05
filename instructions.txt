@@ -106,3 +106,6 @@ para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na
 - Lá no contexto, ao invés de chamar o createContext do react, vamos chamar o createContext que vem dentro do use-context-selector
 - Ao invés de usar o useContext para chamar esse contexto nos componentes, usaremos agora o useContextSelector
 - Colocamos uma função como segundo parametro e essa função retorna o componente ao qual queremos ficar observando as mudanças e não todos os elementos como era antes.
+
+# useCallback
+- Evita com que alguma função seja recriada em memória se nenhuma informação que aquela função dependa tenha mudado
