@@ -109,3 +109,39 @@ para lidar com formatações (de dinheiro, datas e etc);- altera os atributos na
 
 # useCallback
 - Evita com que alguma função seja recriada em memória se nenhuma informação que aquela função dependa tenha mudado
+
+# memo
+- Usado quando para evitar lentidão quando o componente tem um return MUITO grande;
+- sintaxe:
+const searchFormSchema = z.object({
+    query: z.string()
+});
+
+type SearchFormInputs = z.infer<typeof searchFormSchema>;
+
+function SearchFormComponent() {
+    const fetchTransactions = useContextSelector(TransactionsContext, (context) => {
+        return context.fetchTransactions;
+    });
+
+    const { register, handleSubmit, formState: { isSubmitting } } = useForm<SearchFormInputs>({
+        resolver: zodResolver(searchFormSchema)
+    });
+
+    async function handleSearchTransactions(data: SearchFormInputs) {
+        await fetchTransactions(data.query);
+    }
+
+    return (
+        <SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
+            <input type="text" placeholder="Pesquise uma transação" {...register('query')} />
+            
+            <button type="submit" disabled={isSubmitting}>
+                <Search size={15} />
+                Buscar
+            </button>
+        </SearchFormContainer>
+    )
+}
+
+export const SearchForm = memo(SearchFormComponent);
