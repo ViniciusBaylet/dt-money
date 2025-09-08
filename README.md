@@ -28,7 +28,7 @@ cd dt-money
 
 ### 2. Instalar dependências
 npm install
-# ou
+#### ou
 yarn install
 
 ### 3. Rodar o servidor fake (JSON Server)
