@@ -23,7 +23,6 @@ O projeto utiliza **Vite** para build rápido, **Styled Components** para estili
 ## 📦 Como Rodar o Projeto
 
 ### 1. Clonar o repositório
-```bash
 git clone https://github.com/seu-usuario/dt-money.git
 cd dt-money
 
